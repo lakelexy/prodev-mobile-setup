@@ -1,73 +1,50 @@
-# prodev-mobile-app-0x00
+# Welcome to your Expo app 👋
 
-## Project Setup
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-This project is an Expo application initialized using the latest Expo Router template.
+## Get started
 
-### Steps to Scaffold the Project
+1. Install dependencies
 
-1. **Navigate to the Project Directory:**
-   ```sh
-   cd prodev-mobile-setup
+   ```bash
+   npm install
    ```
-2. **Initialize a new Expo project:**
-   ```sh
-   npx create-expo-app@latest .
+
+2. Start the app
+
+   ```bash
+    npx expo start
    ```
-3. **Modify the Home Screen:**
-   - Open `app/(tabs)/index.tsx`
-   - Locate the default text `Welcome!`
-   - Change it to:
-     ```tsx
-     <Text>First App Created</Text>
-     ```
-4. **Start the Expo development server:**
-   ```sh
-   npx expo start
-   ```
-5. **Run the app on a device:**
-   - **For Android:** Scan the QR code using the **Expo Go** app.
-   - **For iOS:** Scan the QR code using the **Camera app**.
 
-## Resetting the Project
+In the output, you'll find options to open the app in a
 
-To reset the project and move existing files to `/app-example` instead of deleting them, run:
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-```sh
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+
+## Get a fresh project
+
+When you're ready, run:
+
+```bash
 npm run reset-project
 ```
 
-### What Happens During Reset:
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-- The script moves existing files into `/app-example`, including:
-  - `/app` → `/app-example/app`
-  - `/components` → `/app-example/components`
-  - `/hooks` → `/app-example/hooks`
-  - `/constants` → `/app-example/constants`
-  - `/scripts` → `/app-example/scripts`
-- A **new `/app` directory** is created with fresh files:
-  - `app/index.tsx`
-  - `app/_layout.tsx`
-- The project is now in a clean state while preserving old files for reference.
+## Learn more
 
-### Issues Encountered and Solutions
+To learn more about developing your project with Expo, look at the following resources:
 
-#### 1. **Android SDK Not Found**
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-- Installed Android Studio and set `ANDROID_HOME` and `PATH` environment variables.
+## Join the community
 
-#### 2. **Permission Issues When Resetting the Project**
+Join our community of developers creating universal apps.
 
-- Ran the terminal as an Administrator.
-- Closed any active Expo or VS Code instances to free up file access.
-
-## Next Steps After Reset
-
-1. **Start the development server again:**
-   ```sh
-   npx expo start
-   ```
-2. **Modify `app/index.tsx`** to update the home screen text again.
-3. **Delete `/app-example`** after confirming the project works properly.
-
-This README documents the setup process, project structure, and solutions to encountered issues. 🚀
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
