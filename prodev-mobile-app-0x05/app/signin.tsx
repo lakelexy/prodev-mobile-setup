@@ -1,14 +1,28 @@
+import { useRouter } from "expo-router";
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import { styles } from "@/styles/_joinstyle";
 import { GOOGLELOGO, FACEBOOKLOGO } from "@/constants/index";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function SignIn() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
+      {/* Back Arrow Button */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => router.push("/")}
+      >
+        <AntDesign name="arrowleft" size={24} color="black" />
+      </TouchableOpacity>
+
       {/* Header */}
       <View style={styles.titleTextGroup}>
-        <Text style={styles.titleText}>Welcome Back!</Text>
-        <Text style={styles.subText}>Sign in to continue</Text>
+        <Text style={styles.titleText}>Sign in to your Account</Text>
+        <Text style={styles.subText}>
+          Enter your email and password to sign in
+        </Text>
       </View>
 
       {/* Form */}
@@ -38,13 +52,13 @@ export default function SignIn() {
 
       {/* Sign In Button */}
       <TouchableOpacity style={styles.primaryButton}>
-        <Text style={styles.buttonText}>Sign In</Text>
+        <Text style={styles.buttonText}>Create</Text>
       </TouchableOpacity>
 
       {/* Social Logins */}
       <View style={styles.dividerGroup}>
         <View style={styles.divider} />
-        <Text style={styles.dividerText}>or sign in with</Text>
+        <Text style={styles.dividerText}>or</Text>
         <View style={styles.divider} />
       </View>
 
@@ -63,7 +77,9 @@ export default function SignIn() {
       {/* Sign Up Link */}
       <View style={styles.signupgroup}>
         <Text style={styles.signupTitleText}>Don’t have an account? </Text>
-        <Text style={styles.signupSubTitleText}>Sign up</Text>
+        <TouchableOpacity onPress={() => router.push("/join")}>
+          <Text style={styles.signupSubTitleText}>Sign up</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

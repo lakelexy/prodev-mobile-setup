@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import {
   Text,
   View,
@@ -8,8 +9,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function Index() {
+  const router = useRouter();
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1 }}>
@@ -19,32 +23,47 @@ export default function Index() {
           resizeMode="cover"
         >
           <View style={styles.container}>
+            {/* Company Logo */}
             <View style={styles.companyLogo}>
               <Image source={require("@/assets/images/Logo.png")} />
             </View>
 
+            {/* Text Group */}
             <View style={styles.textGroup}>
               <Text style={styles.textLarge}>
                 Find your favorite place here
               </Text>
-              <Text style={styles.textSmall}>The best prices for over 2 </Text>
+              <Text style={styles.textSmall}>The best prices for over 2</Text>
               <Text style={styles.textSmall}>million properties worldwide</Text>
             </View>
 
+            {/* Buttons Section */}
             <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
               <View style={styles.buttonGroup}>
-                <TouchableOpacity style={styles.button}>
-                  <Text style={{ ...styles.textSmall, color: "black" }}>
-                    Join here
-                  </Text>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => router.push("/join")}
+                >
+                  <Text style={styles.buttonText}>Join</Text>
                 </TouchableOpacity>
-
-                <TouchableOpacity style={styles.transparentButton}>
-                  <Text style={styles.textSmall}>Sign In</Text>
+                <TouchableOpacity
+                  style={styles.transparentButton}
+                  onPress={() => router.push("/signin")}
+                >
+                  <Text style={styles.buttonText}>Sign In</Text>
                 </TouchableOpacity>
               </View>
+
+              {/* Navigation to Properties */}
               <View style={{ alignItems: "center", paddingVertical: 20 }}>
                 <Text style={{ color: "white" }}>Continue to home</Text>
+                <TouchableOpacity
+                  onPress={() => router.push("/Continue to home")}
+                  style={styles.arrowButton}
+                >
+                  <Text style={styles.arrowText}>ContinueToHome</Text>
+                  <AntDesign name="arrowright" size={24} color="#fff" />
+                </TouchableOpacity>
               </View>
             </View>
           </View>
@@ -86,15 +105,10 @@ const styles = StyleSheet.create({
     fontWeight: "200",
     textAlign: "center",
   },
-  transparentButton: {
-    borderColor: "white",
-    borderWidth: 2,
-    borderRadius: 40,
-    paddingVertical: 15,
-    paddingHorizontal: 5,
-    alignItems: "center",
-    fontSize: 20,
-    flex: 1,
+  buttonGroup: {
+    flexDirection: "row",
+    gap: 20,
+    paddingHorizontal: 20,
   },
   button: {
     borderColor: "white",
@@ -107,9 +121,27 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flex: 1,
   },
-  buttonGroup: {
+  transparentButton: {
+    borderColor: "white",
+    borderWidth: 2,
+    borderRadius: 40,
+    paddingVertical: 15,
+    paddingHorizontal: 5,
+    alignItems: "center",
+    fontSize: 20,
+    flex: 1,
+  },
+  arrowButton: {
     flexDirection: "row",
-    gap: 20,
-    paddingHorizontal: 20,
+    alignItems: "center",
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: "#34967C",
+    borderRadius: 10,
+  },
+  arrowText: {
+    color: "#fff",
+    fontSize: 18,
+    marginRight: 10,
   },
 });
